@@ -21,14 +21,12 @@ namespace API.Controllers
             _context = context;
         }
 
-        // GET: api/Expenses
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Expense>>> GetExpense()
         {
             return await _context.Expense.ToListAsync();
         }
 
-        // GET: api/Expenses/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Expense>> GetExpense(int id)
         {
@@ -42,8 +40,6 @@ namespace API.Controllers
             return expense;
         }
 
-        // PUT: api/Expenses/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
         public async Task<IActionResult> PutExpense(int id, Expense expense)
         {
@@ -73,8 +69,6 @@ namespace API.Controllers
             return NoContent();
         }
 
-        // POST: api/Expenses
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
         public async Task<ActionResult<Expense>> PostExpense(Expense expense)
         {
@@ -84,7 +78,6 @@ namespace API.Controllers
             return CreatedAtAction("GetExpense", new { id = expense.Id }, expense);
         }
 
-        // DELETE: api/Expenses/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteExpense(int id)
         {

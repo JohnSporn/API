@@ -21,14 +21,12 @@ namespace API.Controllers
             _context = context;
         }
 
-        // GET: api/RecurringExpenses
         [HttpGet]
         public async Task<ActionResult<IEnumerable<RecurringExpense>>> GetRecurringExpense()
         {
             return await _context.RecurringExpense.ToListAsync();
         }
 
-        // GET: api/RecurringExpenses/5
         [HttpGet("{id}")]
         public async Task<ActionResult<RecurringExpense>> GetRecurringExpense(int id)
         {
@@ -42,8 +40,6 @@ namespace API.Controllers
             return recurringExpense;
         }
 
-        // PUT: api/RecurringExpenses/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
         public async Task<IActionResult> PutRecurringExpense(int id, RecurringExpense recurringExpense)
         {
@@ -73,8 +69,6 @@ namespace API.Controllers
             return NoContent();
         }
 
-        // POST: api/RecurringExpenses
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
         public async Task<ActionResult<RecurringExpense>> PostRecurringExpense(RecurringExpense recurringExpense)
         {
@@ -84,7 +78,6 @@ namespace API.Controllers
             return CreatedAtAction("GetRecurringExpense", new { id = recurringExpense.Id }, recurringExpense);
         }
 
-        // DELETE: api/RecurringExpenses/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteRecurringExpense(int id)
         {

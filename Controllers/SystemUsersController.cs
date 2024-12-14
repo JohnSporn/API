@@ -21,14 +21,12 @@ namespace API.Controllers
             _context = context;
         }
 
-        // GET: api/SystemUsers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<SystemUser>>> GetSystemUser()
         {
             return await _context.SystemUser.ToListAsync();
         }
 
-        // GET: api/SystemUsers/5
         [HttpGet("{id}")]
         public async Task<ActionResult<SystemUser>> GetSystemUser(int id)
         {
@@ -42,8 +40,6 @@ namespace API.Controllers
             return systemUser;
         }
 
-        // PUT: api/SystemUsers/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
         public async Task<IActionResult> PutSystemUser(int id, SystemUser systemUser)
         {
@@ -73,8 +69,6 @@ namespace API.Controllers
             return NoContent();
         }
 
-        // POST: api/SystemUsers
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
         public async Task<ActionResult<SystemUser>> PostSystemUser(SystemUser systemUser)
         {
@@ -84,7 +78,6 @@ namespace API.Controllers
             return CreatedAtAction("GetSystemUser", new { id = systemUser.Id }, systemUser);
         }
 
-        // DELETE: api/SystemUsers/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteSystemUser(int id)
         {

@@ -21,14 +21,12 @@ namespace API.Controllers
             _context = context;
         }
 
-        // GET: api/Budgets
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Budget>>> GetBudget()
         {
             return await _context.Budget.ToListAsync();
         }
 
-        // GET: api/Budgets/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Budget>> GetBudget(int id)
         {
@@ -42,8 +40,6 @@ namespace API.Controllers
             return budget;
         }
 
-        // PUT: api/Budgets/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
         public async Task<IActionResult> PutBudget(int id, Budget budget)
         {
@@ -73,8 +69,6 @@ namespace API.Controllers
             return NoContent();
         }
 
-        // POST: api/Budgets
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
         public async Task<ActionResult<Budget>> PostBudget(Budget budget)
         {
@@ -84,7 +78,6 @@ namespace API.Controllers
             return CreatedAtAction("GetBudget", new { id = budget.Id }, budget);
         }
 
-        // DELETE: api/Budgets/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteBudget(int id)
         {
